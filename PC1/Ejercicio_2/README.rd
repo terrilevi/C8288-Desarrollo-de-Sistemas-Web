@@ -9,6 +9,7 @@ Este código responde a la característica/requisito de Manejo de Objetos y todo
 - Ejercicio2_Manejo_de_Objetos
 Este código responde a la característica/requisito de Funciones y Clases y todos sus requisitos internos.
 
-![Description of the image](Requisitos_resueltos.png)
+![Requisitos](Requisitos_resueltos.png)
+
 
 Todas mis lineas de código estan comentadas a medida que desarrollaba mis ideas...
