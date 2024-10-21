@@ -32,3 +32,10 @@ En el REQ8 se menciona **Debes manejar errores y casos de borde, asegurando que 
 ## Instrucciones del proyecto:
 
 1. Crear un nuevo proyecto React con TS, para eso usamos el siguiente comando: 
+
+  npx create-react-app gestor-tareas --template typescript
+
+2. Como yo cree el directorio `gestor-tareas`, debo navegar hasta ese directorio, para eso usar:
+
+  cd gestor-tareas
+
