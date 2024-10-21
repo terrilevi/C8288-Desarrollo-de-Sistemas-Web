@@ -9,7 +9,7 @@ Esta una app simplificada de gestión de eventos, con este app el usuario, en ti
 
 
 Tambien, la app mostrará mensajes de confirmacion al crear, editar o eliminar algun evento  y si algun o todos los campos estan vacios, tambien se mostrará un mensaje de advertencia.
-
+![alt text](simApp3.png)
 
 # Instrucciones del proyecto:
 
