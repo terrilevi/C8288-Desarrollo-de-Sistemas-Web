@@ -36,6 +36,10 @@ class MicroTask extends Task {
   }
 }
 
+// Para implementar una macrotareas, creamos nuestro constructor q recibe tres parámetros: id para identificar la tarea, 
+// message que será el contenido del mensaje a mostrar, y delay que determina el tiempo de espera. 
+// Llamamos a super(id, 'macro') para inicializar la clase base con el tipo 'macro'. En el método execute() 
+// usamos setTimeout para simular una tarea que se ejecuta después de un delay específico
 class MacroTask extends Task {
   constructor(id: number, private message: string, private delay: number) {
     super(id, 'macro');
@@ -47,6 +51,9 @@ class MacroTask extends Task {
   }
 }
 
+// Ahora, para implementar nuestro nextTick, Su constructor toma un id y un mensaje, y llama al constructor padre 
+// especificando el tipo 'nextTick'. 
+// El método execute() utiliza process.nextTick() de node.js, que tiene la prioridad más alta en el eventloop
 class NextTickTask extends Task {
   constructor(id: number, private message: string) {
     super(id, 'nextTick');
@@ -58,6 +65,10 @@ class NextTickTask extends Task {
   }
 }
 
+// esta clase representa una tarea asincrona, Su constructor toma id, message y delay. El método execute() 
+// : es una función async que primero imprime un mensaje inicio,
+// luego crea una nueva Promise que se resolverá después del delay especificado, y finalmente imprime un 
+// mensaje de finalización
 class AsyncTask extends Task {
   constructor(id: number, private message: string, private delay: number) {
     super(id, 'async');
@@ -91,6 +102,9 @@ class EventLoopSimulator {
   }
   // Los métodos públicos addMicroTask, addMacroTask, addNextTickTask y addAsyncTask 
   // permiten agregar diferentes tipos de tareas
+  // addMicroTask solo necesita un mensaje, mientras que addMacroTask y addAsyncTask necesitan 
+  // un mensaje y un delay. internamente, cada método usa createTask para crear una nueva 
+  // instancia del tipo de tarea correspondiente y la agrega al array tasks usando push
   public addMicroTask(message: string): void {
     this.tasks.push(this.createTask(MicroTask, message));
   }
@@ -106,9 +120,9 @@ class EventLoopSimulator {
   public addAsyncTask(message: string, delay: number): void {
     this.tasks.push(this.createTask(AsyncTask, message, delay));
   }
-  // Este método recorre todas las tareas en el array tasks y las ejecuta en orden. 
-  // Usa await para manejar tanto tareas síncronas como asíncronas, lo que significa 
-  // que esperará a que cada tarea termine antes de pasar a la siguiente.
+// esta es nuestra función asíncrona que primero imprime un mensaje de inicio. luego, itera sobre todas las tareas 
+// almacenadas en el array tasks usando un bucle for. Para cada tarea llama a su método execute() usando await. 
+// basicamente esperará a que cada tarea se complete antes de pasar a la siguiente q es como una simulacion de un event loop
 
   public async runSimulation(): Promise<void> {
     console.log('Empezando simulación del EVENT LOOP...');
