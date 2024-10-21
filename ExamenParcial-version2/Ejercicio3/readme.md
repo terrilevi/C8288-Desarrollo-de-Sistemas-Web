@@ -17,7 +17,7 @@ Tambien, la app mostrará mensajes de confirmacion al crear, editar o eliminar a
 
 - npx create-react-app gestor-eventos 
 
-### 2. Como yo cree el directorio `gestor-tareas`, debo navegar hasta ese directorio, para eso usar:
+### 2. Como yo cree el directorio `gestor-eventos`, debo navegar hasta ese directorio, para eso usar:
 
 - cd gestor-eventos
 
