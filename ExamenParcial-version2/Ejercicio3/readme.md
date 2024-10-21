@@ -6,7 +6,7 @@ Esta una app simplificada de gestión de eventos, con este app el usuario, en ti
 - Editar eventos existentes
 - Eliminar eventos
 - Ver la lista de eventos
-![alt text](simApp2.png)
+
 
 Tambien, la app mostrará mensajes de confirmacion al crear, editar o eliminar algun evento  y si algun o todos los campos estan vacios, tambien se mostrará un mensaje de advertencia.
 
