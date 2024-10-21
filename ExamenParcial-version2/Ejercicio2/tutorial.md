@@ -39,3 +39,53 @@ En el REQ8 se menciona **Debes manejar errores y casos de borde, asegurando que 
 
   cd gestor-tareas
 
+
+3. Inicialmente, lo que realizo es crear los archivos que usaré dentro de `src`, como:
+
+- taskManager.tsx
+- taskAdd.tsx
+- taskFiltro.tsx
+- taskMostrar.tsx
+- taskTareasRandom.ts
+
+### 4. Implementado el GENERADOR DE TAREAS ALEATORIAS.
+
+Ahora sí, implementaremos el generador de tareas aleatorias. Cuando corres la app, te aparecerá una lista de tareas aleatorias con estados aleatorios. Para esto usamos el script de `taskTareasRandom.ts`, que contiene el siguiente código:
+
+Implementamos una interface `Task` que define la estructura de una tarea individual. Esta interface se utiliza para tipar nuestros datos, lo cual asegura que haya consistencia en toda nuestra app.
+
+```typescript
+interface Task {
+id: number;
+texto: string;
+completada: boolean;
+}
+```
+
+Creamos nuestra constante tareasEjemplo, que es un array de strings. Este array se usará como fuente de datos para generar nuestras tareas aleatorias iniciales:
+```typescript
+const tareasEjemplo = [
+  "Hacer examen V2 de Desarrollo de sistemas web",
+  "Almorzar saludable",
+  "Estudiar Next.js",
+  "Hacer ejercicio",
+  "Leer un libro",
+  "Practicar meditación",
+  "Llamar a un amigo",
+  "Organizar el escritorio"
+];
+```
+Exportamos generarTareasIniciales, que es una función que no toma parámetros y devuelve un array de objetos Task. Esta funcion utiliza el metodo map para iterar sobre cada elemento del array creado anteriormente(tareasejemplo)
+Para cada tarea, crea un nuevo objeto que cumple con la interface Task
+Asigna un id basado en el indice del elemento en el array
+Usa el texto de la tarea directamente del array tareasEjemplo
+y genera aleatoriamente el estado completado con una probabilidad del 30% de ser True.
+```typescript
+export const generarTareasIniciales = (): Task[] => {
+  return tareasEjemplo.map((tarea, index) => ({
+    id: index,
+    texto: tarea,
+    completada: Math.random() < 0.3 // 30% de probabilidad de estar completada
+  }));
+};
+```
