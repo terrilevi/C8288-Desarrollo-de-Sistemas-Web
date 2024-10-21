@@ -6,6 +6,7 @@ Esta una app simplificada de gestión de tareas, con este app el usuario, en tie
 - Marcar tareas como completadas
 - Eliminar tareas en TaskList
 - Filtrar tareas 
+![alt text](simApp2.png)
 
 Basicamente, es una implementación de CRUD (Create, Read, Update, Delete) que tiene la funcionalidad adicional de filtrado y simulacion de actualizaciones en tiempo real.
 
