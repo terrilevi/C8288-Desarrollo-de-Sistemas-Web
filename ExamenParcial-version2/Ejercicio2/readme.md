@@ -13,34 +13,34 @@ Basicamente, es una implementación de CRUD (Create, Read, Update, Delete) que t
 
 Este app responde a los requerimientos proporcionados por el ExamenParcial.
 
-En el REQ1 se menciona **Utiliza los Hooks de React**: En nuestro caso estamos usando todos los Hooks mencionados.
+- En el REQ1 se menciona **Utiliza los Hooks de React**: En nuestro caso estamos usando todos los Hooks mencionados.
 
-En el REQ2 se menciona **Implementa Hooks personalizados para reutilizar lógica entre componentes**
+- En el REQ2 se menciona **Implementa Hooks personalizados para reutilizar lógica entre componentes**
 
-En el REQ3 se menciona **Gestiona un estado global utilizando useContext y useReducer**
+- En el REQ3 se menciona **Gestiona un estado global utilizando useContext y useReducer**
 
-En el REQ4 se menciona **Optimiza el rendimiento de la aplicación utilizando useMemo y useCallback para evitar renders innecesarios**: usaremos `useMemo` para optimizar el filtrado de tareas en TaskList.
+- En el REQ4 se menciona **Optimiza el rendimiento de la aplicación utilizando useMemo y useCallback para evitar renders innecesarios**: usaremos `useMemo` para optimizar el filtrado de tareas en TaskList.
 
-En el REQ5 se menciona **Manipula referencias directas al DOM con useRef y preserva valores entre renders**
+- En el REQ5 se menciona **Manipula referencias directas al DOM con useRef y preserva valores entre renders**
 
-En el REQ6 se menciona **No utilizar librerías de manejo de estado como Redux**: En nuestro caso no usamos para nada Redux, todo lo hacemos con Hooks.
+- En el REQ6 se menciona **No utilizar librerías de manejo de estado como Redux**: En nuestro caso no usamos para nada Redux, todo lo hacemos con Hooks.
 
-En el REQ7 se menciona **El código debe estar escrito en TS, usando Interfaces, Tipos Avanzados y Generics donde sea apropiado**
+- En el REQ7 se menciona **El código debe estar escrito en TS, usando Interfaces, Tipos Avanzados y Generics donde sea apropiado**
 
-En el REQ8 se menciona **Debes manejar errores y casos de borde, asegurando que la app no se rompa ante entradas inesperadas**
+- En el REQ8 se menciona **Debes manejar errores y casos de borde, asegurando que la app no se rompa ante entradas inesperadas**
 
 ## Instrucciones del proyecto:
 
-1. Crear un nuevo proyecto React con TS, para eso usamos el siguiente comando: 
+### 1. Crear un nuevo proyecto React con TS, para eso usamos el siguiente comando: 
 
 - npx create-react-app gestor-tareas --template typescript
 
-2. Como yo cree el directorio `gestor-tareas`, debo navegar hasta ese directorio, para eso usar:
+### 2. Como yo cree el directorio `gestor-tareas`, debo navegar hasta ese directorio, para eso usar:
 
 - cd gestor-tareas
 
 
-3. Inicialmente, lo que realizo es crear los archivos que usaré dentro de `src`, como:
+### 3. Inicialmente, lo que realizo es crear los archivos que usaré dentro de `src`, como:
 
 - taskManager.tsx
 - taskAdd.tsx
