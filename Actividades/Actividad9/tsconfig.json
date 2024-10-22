@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES6",                         // Define la versión de ECMAScript
+      "module": "commonjs",                    // Usa módulos CommonJS
+      "outDir": "./",                      // Directorio de salida para los archivos compilados
+      "rootDir": "./",                         // Directorio raíz de los archivos TypeScript
+      "strict": true,                          // Habilita comprobaciones estrictas de tipo
+      "esModuleInterop": true,  
+      "allowSyntheticDefaultImports": true,               // Habilita la interoperabilidad con módulos ES -- esModuleInterop
+      "skipLibCheck": true                     // Omite la comprobación de tipos de archivos de definición
+    },
+    "include": ["**/*.ts", "**/*.tsx"],        // Incluye todos los archivos .ts y .tsx
+    "exclude": ["node_modules"]                // Excluye la carpeta node_modules
+  }
+
+

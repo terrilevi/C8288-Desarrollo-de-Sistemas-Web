@@ -1,0 +1,44 @@
+<script type="text/babel">
+    function App() {
+        const WeatherComponent = (props) => {
+            const [count, setCount] = React.useState(0);
+            React.useEffect(() => {
+                setCount(1);
+            }, []);
+
+            return (
+                <div>
+                    <h1>The weather is {props.weather}, and the counter shows {count}</h1>
+                    <CounterButton count={count} setCount={setCount} />
+                </div>
+            );
+        };
+
+        const CounterButton = ({ count, setCount }) => {
+            const isEven = count % 2 === 0;
+            const buttonStyle = {
+                backgroundColor: isEven ? "green" : "red",
+                color: "white",
+                padding: "10px 20px",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer"
+            };
+
+            return (
+                <button
+                    style={buttonStyle}
+                    onClick={() => setCount(count + 1)}
+                >
+                    Click me
+                </button>
+            );
+        };
+
+        return (<WeatherComponent weather="sunny" />);
+    }
+
+    const container = document.getElementById("root");
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
+</script>
