@@ -2,7 +2,7 @@
 # safeXpace
 Mi proyecto se llama safeXpace, es un aplicativo hecho en React.
 Este es un tutorial que puedes seguir para recrearlo y aprender Redux, types/interfaces y algunos Hooks
-##### Paso 1 : Initial Setup 
+### Paso 1 : Initial Setup 
 
 Creamos nuestro app con el comando:
 ``` typescript
@@ -77,7 +77,7 @@ export default App;
 
 Hasta el momento, si haces click en el botón Login, no pasará nada, la información de Profile no cambia sus valores, eso es lo siguiente que queremos hacer
 
-##### Paso 2 : Implementando Redux
+### Paso 2 : Implementando Redux
 
 Abramos index.tsx que es  donde se llama a App y se renderiza App.
 En Redux existe algo llamado Store, que es como un contenedor que contiene informacion, en caso de Redux, es un store que contiene todos los States que queremos hacer global. Es decir, todos los States que queremos que se accedan a traves de toda la app y que tambien querramos que esten disponibles para cambiarlos.
@@ -226,7 +226,7 @@ const store = configureStore({
 })
 ```
 
-##### Paso 3 : Usando useSelector hook
+### Paso 3 : Usando useSelector hook
 
 Usamos useSelector hook de react-redux para leer datos directamente del estado global de redux dentro de un componente de react. 
 
@@ -276,7 +276,7 @@ Continuemos recordemos que ya antes habiamos exportado en index.tsx nuestras acc
 export const {login, logout} = userSlice.actions
 ```
 
-##### Paso 3 : Usando useDispatch hook
+### Paso 4 : Usando useDispatch hook
 Queremos que el componente Login permita al usuario ingresar su información en un formulario. Cuando el usuario presiona el botón para enviar el formulario, actualizamos el estado global user con esta información.
 
 Primero, necesitamos importar el hook useDispatch de react-redux y la acción login que hemos definido en nuestro userSlice.
