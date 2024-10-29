@@ -129,24 +129,136 @@ El manejo de estado local se hace principalmente con `useState` en componentes d
 
 ### REQ4: Escribir pruebas unitarias para componentes y lógica de negocios usando Jest y React Testing Library
 
+Para crear pruebas unitarias, me plantee primero probar el componente más básico de la aplicación(tambien para aprender a crear unit tests), este componente será el Login que es el punto de entrada de nuestra aplicación.
 
+Primero lo que hacemos es preparar nuestro ambiente de testing. 
+``` bash
+npm install --save-dev @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom @types/jest
+```
+Ahora si podemos constuir el test.
 
+Primero importamos todas las herramientas, componentes reducers con los que trabajaremos en este test
+``` typescript
+// Necesario para trabajar con componentes React
+import React from 'react';
 
+// Herramientas para testing
+import { render, screen, fireEvent } from '@testing-library/react';
 
+// Componentes de Redux necesarios
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 
+// Nuestro reducer y componente a testear
+import userReducer from '../features/user';
+import Login from '../components/auth/login';
+```
 
+Despues de las importaciones necesitamos crear un store de Redux especifico para nuestras pruebas:
 
+``` typescript
+const createTestStore = () => {
+  return configureStore({
+    reducer: {
+      user: userReducer
+    }
+  });
+};
 
+```
 
+Y ya ahora si podemos escribir la estructura principal donde organizamos neustros tests.
 
+Usé describe('Login Component') para agrupar todos los tests relacionados con el Login. Dentro de este bloque, declaré una variable store que va a contener nuestro store de Redux. También agregué un beforeEach que crea un store nuevo antes de cada test, porque queremos que cada test empiece con un estado limpio, o sea sin datos residuales de otros tests.
+``` typescript
+describe('Login Component', () => {
+  // Declaramos el store que usaremos en todos los tests
+  let store: ReturnType<typeof createTestStore>;
 
+  // Antes de cada test, creamos un store nuevo
+  beforeEach(() => {
+    store = createTestStore();
+  });
+```
+El primer test que escribí responde estas preguntas: ¿están todos los elementos que necesitamos en la pantalla? Este test verifica que cuando el componente se renderiza, podemos ver el título "who are you?" y todos los campos del formulario. De alguna manera estamos haciendo como una lista de verificación: ¿está el campo para el nombre? ¿está el campo para la edad? ¿está el campo para el email?...
 
+``` typescript
+test('muestra todos los campos del formulario', () => {
+    // Renderizamos el componente con acceso al store
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>
+    );
 
+    // Verificamos que el título esté presente
+    expect(screen.getByText('who are you?')).toBeInTheDocument();
 
+    // Verificamos que todos los campos estén presentes
+    expect(screen.getByPlaceholderText('i am ...')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('my age is ...')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('my email is...')).toBeInTheDocument();
+  });
+```
+Una vez que confirmamos que todos los elementos están presentes, podemos ahora verificar que funcionan. Entonces, este test simula a un usuario escribiendo en cada campo. Primero obtenemos referencias a todos los inputs usando sus placeholders. Luego, utilizamos fireEvent.change para simular que alguien está escribiendo en ellos. Ya al final, verificamos que los valores se actualizaron correctamente.
+``` typescript
+test('actualiza los valores cuando el usuario escribe', () => {
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>
+    );
 
+    const nameInput = screen.getByPlaceholderText('i am ...') as HTMLInputElement;
+    const ageInput = screen.getByPlaceholderText('my age is ...') as HTMLInputElement;
+    const emailInput = screen.getByPlaceholderText('my email is...') as HTMLInputElement;
 
+    fireEvent.change(nameInput, { target: { value: 'John' } });
+    fireEvent.change(ageInput, { target: { value: '25' } });
+    fireEvent.change(emailInput, { target: { value: 'john@test.com' } });
 
+    expect(nameInput.value).toBe('John');
+    expect(ageInput.value).toBe('25');
+    expect(emailInput.value).toBe('john@test.com');
+  });
 
+```
+Ahora si podriamos hacer un test que verifique el flujo completo, desde que el usuario escribe hasta que la informacion se gaurda en Redux, primero simulamos que el usuario llena todos los campos y luego simulamos un click en el boton de continue, y verificamos el estado de redux para asegurarnos de que toda la informacion se guardó correctamente.
+``` typescript
+test('actualiza el estado de Redux al enviar el formulario', () => {
+    // Renderizamos el componente
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>
+    );
+
+    // Obtenemos referencias a los inputs
+    const nameInput = screen.getByPlaceholderText('i am ...');
+    const ageInput = screen.getByPlaceholderText('my age is ...');
+    const emailInput = screen.getByPlaceholderText('my email is...');
+    
+    // Simulamos que el usuario llena el formulario
+    fireEvent.change(nameInput, { target: { value: 'John' } });
+    fireEvent.change(ageInput, { target: { value: '25' } });
+    fireEvent.change(emailInput, { target: { value: 'john@test.com' } });
+
+    // Simulamos el envío del formulario
+    const submitButton = screen.getByText('continue');
+    fireEvent.click(submitButton);
+
+    // Verificamos que el estado de Redux se actualizó correctamente
+    const state = store.getState();
+    expect(state.user.hasInfo).toBe(true);
+    expect(state.user.value).toEqual({
+      name: 'John',
+      age: 25,
+      email: 'john@test.com',
+      description: ''
+    });
+  });
+```
+Luego podemos testear y verificar que todos los test salen correctos, este fue solo la implementacion de testing para un solo componente, pero podemos hacer lo mismo con los demas componentes. 
 
 # Tutorial de implementación 
 ### Paso 1 : Initial Setup 
