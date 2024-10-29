@@ -5,7 +5,7 @@ Este es un tutorial que puedes seguir para recrearlo y aprender Redux, types/int
 - Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overview
 
 
-# REQ1-Diseñar la arquitectura front-end siguiendo los principios de ingeniería de software y  REQ5-Documentar las decisiones arquitectónicas y los patrones utilizados.
+### REQ1-Diseñar la arquitectura front-end siguiendo los principios de ingeniería de software y  REQ5-Documentar las decisiones arquitectónicas y los patrones utilizados.
 
 ![Arch](frontendArch.png)
 (Hecho con Mermaid)
@@ -45,7 +45,7 @@ Esta base arquitectónica me puede permitir escalar el aplicativo y agregando pa
 
 
 
-# REQ2 : Implementar componentes funcionales y Hooks Avanzados
+### REQ2 : Implementar componentes funcionales y Hooks Avanzados
 
 Mencionaré todos los componentes funcionales que tenemos en nuestro aplicativo y los Hooks avanzados que usamos en estos componentes:
 
@@ -125,9 +125,9 @@ interface PostProps {
 El manejo de estado local se hace principalmente con `useState` en componentes de formulario (`Login`, `Description`, `AdviceRantPage`). La conexión con Redux se maneja a través de `useSelector` para leer estado y `useDispatch` para acciones. 
 
 
-REQ3: Aplicar tipado estricto con TypeScript en todo el proyecto
+### REQ3: Aplicar tipado estricto con TypeScript en todo el proyecto
 
-REQ4: Escribir pruebas unitarias para componentes y lógica de negocios usando Jest y React Testing Library
+### REQ4: Escribir pruebas unitarias para componentes y lógica de negocios usando Jest y React Testing Library
 
 
 
