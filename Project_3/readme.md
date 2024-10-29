@@ -2,14 +2,131 @@
 # safeXpace
 Mi proyecto se llama safeXpace, es un aplicativo hecho en React.
 Este es un tutorial que puedes seguir para recrearlo y aprender Redux, types/interfaces y algunos Hooks
-Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overview
+- Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overview
 
+
+# REQ1-Diseñar la arquitectura front-end siguiendo los principios de ingeniería de software y  REQ5-Documentar las decisiones arquitectónicas y los patrones utilizados.
 
 ![Arch](frontendArch.png)
 (Hecho con Mermaid)
 
+SafeXpace implementa un flujo de usuario secuencial basado en estados en Redux. El flujo inicia con un componente de autenticación (Login.tsx) que captura la información del usuario mediante un formulario controlado con useState. Al disparar la acción login a través de dispatch, el estado hasInfo se actualiza a true en el userSlice.
+
+La navegación progresa cuando hasInfo es true, renderizando el componente Description.tsx que permite al usuario ingresar su descripción. Al completar este paso, se despacha la acción addingDescription que actualiza hasDescription a true. Posteriormente, se renderiza Profile.tsx, un componente presentacional que muestra los datos almacenados en el estado global user.value. Al hacer click en "enter SafeXpace", se despacha enterSafeX actualizando isInSafeX a true.
+
+En la vista principal (SafeXpaceVista.tsx), se implementa un componente de header con la información del usuario y la funcionalidad de logout. El componente AdviceRantPage.tsx contiene un formulario controlado que permite crear posts de tipo "Rant" o "Ask4advice", despachando la acción addPost al postsSlice. Cada post se renderiza a través del componente presentacional Post.tsx, que recibe las props tipadas mediante una interface PostProps.
+
+La arquitectura actual implementa patrones y principios básicos ya que hasta el momento es un aplicativo pequeño. Podriamos decir que la arquitectura frontend actualmente se basa en: El conjunto del patrón arquitectónico Flux implementado a través de Redux, donde el estado global actúa como single source of truth, y La estructura de componentes de modelo jerárquico React basado en la composición, donde hay pequeños rasgos de la implementación del principio de responsabilidad única (SRP), ya que cada componente tiene una función específica: Login.tsx maneja autenticación, Profile.tsx visualización de datos, Description.tsx actualización de perfil. Pero eso puede mejorar, por eso menciono que solamente hay un indicio del uso de SRP.
+
+Hasta el momento, los principios de diseño implementados incluyen:
+
+Composición de componentes: Construimos UIs complejas componiendo componentes más pequeños
+Inmutabilidad a través de Redux Toolkit, facilitando el tracking de cambios de estado
+Unidirectional Data Flow: Los datos fluyen desde componentes hacia el store mediante dispatch(action) y del store a los componentes vía useSelector
+
+La arquitectura es escalable para incorporar necesidades como:
+
+Routing con React Router
+Comunicación con backend mediante servicios API
+Manejo de estado asíncrono con middleware como Redux Thunk
+Testing unitario de reducers y componentes
 
 
+La arquitectura frontend actual es una combinación de:
+
+Modelo de componentes React jerárquico
+Gestión de estado centralizada con Redux
+Navegación basada en estados
+Principio de Responsabilidad Única parcialmente implementado
+Patrones de diseño básicos de React como la composición de componentes
+
+Esta base arquitectónica me puede permitir escalar el aplicativo y agregando patrones adicionales según crezcan los requerimientos.
+
+
+
+
+# REQ2 : Implementar componentes funcionales y Hooks Avanzados
+Analizaré cada componente funcional y sus hooks específicos:
+
+`Login.tsx` es un componente funcional que maneja el registro inicial de usuario. Este componente utiliza:
+- `useState` para manejar el estado local del formulario:
+```typescript
+const [name, setName] = useState<string>("")
+const [age, setAge] = useState<number>(0)
+const [email, setEmail] = useState<string>("")
+```
+- `useDispatch` para despachar la acción `login` al store:
+```typescript
+const dispatch = useDispatch()
+dispatch(login({name, age, email, description: ""}))
+```
+El componente maneja el submit del form con `handleInputChange` que previene el default event con `e.preventDefault()`.
+
+`Description.tsx` maneja la adición de descripción al usuario. Implementa:
+- `useState` para el control del input:
+```typescript
+const [newDescription, setNewDescription] = useState<string>("")
+```
+- `useSelector` para obtener el nombre del usuario del store:
+```typescript
+const user = useSelector((state:RootState)=> state.user.value)
+```
+- `useDispatch` para la acción `addingDescription`
+El componente muestra el nombre actual y permite agregar descripción.
+
+`Profile.tsx` es un componente de visualización que utiliza:
+- `useSelector` para obtener toda la data del usuario y mostrarla
+```typescript
+const user = useSelector((state: RootState) => state.user.value)
+```
+- `useDispatch` para la acción `enterSafeX`
+Muestra name, age y description del usuario.
+
+`SafeXpaceVista.tsx` es el layout principal que implementa:
+- `useSelector` para mostrar datos del usuario y el boton de logout
+```typescript
+const user = useSelector((state: RootState) => state.user.value)
+```
+- `useDispatch` para manejar el logout
+Renderiza el header con datos del usuario y el botón de logout.
+
+`AdviceRantPage.tsx` maneja la creación de posts:
+- `useState` para el contenido del post:
+```typescript
+const [postContent, setPostContent] = useState("")
+```
+- `useSelector` para data del usuario actual:
+```typescript
+const user = useSelector((state: RootState) => state.user)
+```
+- `useDispatch` para despachar `addPost`
+Tiene dos botones que determinan el tipo de post a crear.
+
+`PostList.tsx` es un componente de renderizado que usa:
+- `useSelector` para obtener el array de posts:
+```typescript
+const posts = useSelector((state: RootState) => state.posts.posts)
+```
+Mapea los posts y renderiza el componente `Post` para cada uno.
+
+`Post.tsx` es un componente puramente presentacional:
+- No utiliza hooks
+- Recibe props tipadas:
+```typescript
+interface PostProps {
+    postType: string
+    name: string
+    age: number
+    content: string
+}
+```
+
+El manejo de estado local se hace principalmente con `useState` en componentes de formulario (`Login`, `Description`, `AdviceRantPage`). La conexión con Redux se maneja a través de `useSelector` para leer estado y `useDispatch` para acciones. 
+
+
+REQ3: Aplicar tipado estricto con TypeScript en todo el proyecto
+
+REQ4: Escribir pruebas unitarias para componentes y lógica de negocios usando Jest y React Testing Library
 
 
 
