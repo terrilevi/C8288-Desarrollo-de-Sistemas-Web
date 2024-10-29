@@ -5,7 +5,7 @@ Este es un tutorial que puedes seguir para recrearlo y aprender Redux, types/int
 Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overview
 
 
-
+![Arch](frontendArch.png)
 
 
 
