@@ -6,7 +6,7 @@ Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overvie
 
 
 ![Arch](frontendArch.png)
-
+(Hecho con Mermaid)
 
 
 
