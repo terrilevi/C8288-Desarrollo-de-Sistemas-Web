@@ -126,6 +126,104 @@ El manejo de estado local se hace principalmente con `useState` en componentes d
 
 
 ### REQ3: Aplicar tipado estricto con TypeScript en todo el proyecto
+Definimos dos interfaces principales principales en todo el proyecto que estan en dos archivos separados, userData y userState dentro de user.ts y Post dentro de post.ts. Estas interfaces estan definiendo los tipos de datos, por ejemplo name debe ser un string, age un number dentro de UserData. Hacemos esto porque las usaremos para tipar el estado global de Redux, validar la estructura de los datos en los componentes y asegurar que los datos que fluyan en la app mantengan una estructura correcta. 
+``` typescript
+// user.ts
+export interface UserData {
+    name: string;
+    age: number;
+    email: string;
+    description: string;
+}
+
+export interface UserState {
+    value: UserData;
+    hasInfo: boolean;
+    hasDescription: boolean;
+    isInSafeX: boolean;
+}
+```
+``` typescript
+// posts.ts
+export interface Post {
+    postType: string;
+    name: string;
+    age: number;
+    content: string;
+}
+```
+
+En index.ts tambien establecemos el tipado sobre nuestro store global, para definir la estructura global del estado, RootState luego se utilizara para tipar los selectores y tambien nos ayuda con el autocompletado y validacion de tipos mientras programamos
+``` typescript
+// index.tsx
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    posts: postsReducer
+  }
+})
+
+export type RootState = ReturnType<typeof store.getState>;
+```
+En los arvhiso de features, utilizamos TS para definir la estructura de cada slice para asegurar que los reducers solo puedan modificar el estado de manera valida y las acciones deban contener los datos correctos(PayloadAction) y tambien que el estado inicial cumpla con la estructura definida:
+``` typescript
+// posts.tsx
+interface PostsState {
+    posts: Post[];
+}
+
+const initialState: PostsState = {
+    posts: []
+};
+
+export const postsSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {
+        addPost: (state, action: PayloadAction<Post>) => {
+            state.posts.push(action.payload);
+        }
+    }
+});
+```
+``` typescript
+// user.tsx
+const initialStateValue: UserData = {
+    name: "", 
+    age: 0, 
+    email: "", 
+    description: ""
+}
+
+export const userSlice = createSlice({
+    name: "user",
+    initialState: {
+        value: initialStateValue,
+        hasInfo: false,
+        hasDescription: false,
+        isInSafeX: false
+    } as UserState,
+    reducers: {
+        // ...
+    }
+});
+```
+
+Aplicamos tipado en los componentes, por ejemplo en el componente de Post, definimos una interface PostProps que definira la estructura de props y esstados:
+``` typescript
+// Post.tsx
+interface PostProps {
+    postType: string;
+    name: string;
+    age: number;
+    content: string;
+}
+
+const Post: React.FC<PostProps> = ({ postType, name, age, content }) => {
+    // ...
+};
+```
+
 
 ### REQ4: Escribir pruebas unitarias para componentes y lógica de negocios usando Jest y React Testing Library
 
