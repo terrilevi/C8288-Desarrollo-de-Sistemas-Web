@@ -20,25 +20,25 @@ La arquitectura actual implementa patrones y principios básicos ya que hasta el
 
 Hasta el momento, los principios de diseño implementados incluyen:
 
-Composición de componentes: Construimos UIs complejas componiendo componentes más pequeños
-Inmutabilidad a través de Redux Toolkit, facilitando el tracking de cambios de estado
-Unidirectional Data Flow: Los datos fluyen desde componentes hacia el store mediante dispatch(action) y del store a los componentes vía useSelector
+- Composición de componentes: Construimos UIs complejas componiendo componentes más pequeños
+- Inmutabilidad a través de Redux Toolkit, facilitando el tracking de cambios de estado
+- Unidirectional Data Flow: Los datos fluyen desde componentes hacia el store mediante dispatch(action) y del store a los componentes vía useSelector
 
 La arquitectura es escalable para incorporar necesidades como:
 
-Routing con React Router
-Comunicación con backend mediante servicios API
-Manejo de estado asíncrono con middleware como Redux Thunk
-Testing unitario de reducers y componentes
+- Routing con React Router
+- Comunicación con backend mediante servicios API
+- Manejo de estado asíncrono con middleware como Redux Thunk
+- Testing unitario de reducers y componentes
 
 
 La arquitectura frontend actual es una combinación de:
 
-Modelo de componentes React jerárquico
-Gestión de estado centralizada con Redux
-Navegación basada en estados
-Principio de Responsabilidad Única parcialmente implementado
-Patrones de diseño básicos de React como la composición de componentes
+- Modelo de componentes React jerárquico
+- Gestión de estado centralizada con Redux
+- Navegación basada en estados
+- Principio de Responsabilidad Única parcialmente implementado
+- Patrones de diseño básicos de React como la composición de componentes
 
 Esta base arquitectónica me puede permitir escalar el aplicativo y agregando patrones adicionales según crezcan los requerimientos.
 
@@ -46,7 +46,8 @@ Esta base arquitectónica me puede permitir escalar el aplicativo y agregando pa
 
 
 # REQ2 : Implementar componentes funcionales y Hooks Avanzados
-Analizaré cada componente funcional y sus hooks específicos:
+
+Mencionaré todos los componentes funcionales que tenemos en nuestro aplicativo y los Hooks avanzados que usamos en estos componentes:
 
 `Login.tsx` es un componente funcional que maneja el registro inicial de usuario. Este componente utiliza:
 - `useState` para manejar el estado local del formulario:
