@@ -3,6 +3,34 @@
 Mi proyecto se llama safeXpace, es un aplicativo hecho en React.
 Este es un tutorial que puedes seguir para recrearlo y aprender Redux, types/interfaces y algunos Hooks
 Usado en el proyecto: https://redux.js.org/tutorials/fundamentals/part-1-overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Tutorial de implementación 
 ### Paso 1 : Initial Setup 
 
 Creamos nuestro app con el comando:
