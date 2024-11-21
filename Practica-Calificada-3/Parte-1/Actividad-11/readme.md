@@ -327,3 +327,33 @@ export default nextConfig;
 
 
 **Probando**
+
+1. Inicias el servidor de desarrollo:
+```
+npm run dev
+```
+
+Verifica tus rutas de API:
+
+    http://localhost:3000/api/names
+    http://localhost:3000/api/weather/12345
+
+Visita las paginas:
+
+    http://localhost:3000/hello
+    http://localhost:3000/components/weather
+
+
+A mi me salió lo siguiente:
+Para http://localhost:3000/api/names:
+
+![alt text](image-4.png)
+
+Para http://localhost:3000/api/weather/12345
+![alt text](image-5.png)
+
+Para http://localhost:3000/hello:
+![alt text](image-6.png)
+
+Para http://localhost:3000/components/weather
+![alt text](image-7.png)
