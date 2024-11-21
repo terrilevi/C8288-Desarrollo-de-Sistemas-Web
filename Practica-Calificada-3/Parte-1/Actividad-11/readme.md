@@ -1,3 +1,5 @@
+# Realizando la Actividad 11 :smiley:
+
 Lo primero que realizamos para iniciar esta actividad es crear nuestra app Next.js, para realizar eso, puedo usar el siguiente comando
 
 npx create-next-app@latest refactored-app
