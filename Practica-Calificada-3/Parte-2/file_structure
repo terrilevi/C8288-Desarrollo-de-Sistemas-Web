@@ -1,0 +1,56 @@
+```
+backend
+├── node_modules/
+├── src/
+│   ├── db/
+│   │   └── connect.ts
+│   ├── graphql/
+│   │   ├── resolvers/
+│   │   │   └── recommendationResolver.ts
+│   │   ├── schema/
+│   │   │   └── typesDefs.ts
+│   ├── services/
+│   │   └── recommendationService.ts
+│   ├── tests/
+│   │   ├── graphqlIntegration.test.ts
+│   │   └── recommendationService.test.ts
+│   └── types/
+│       └── index.ts
+├── Dockerfile
+├── index.ts
+├── jest.config.js
+├── package-lock.json
+├── package.json
+└── tsconfig.json
+
+frontend
+├── .next/
+├── node_modules/
+├── src/
+│   ├── folder/
+│   │   └── songs.ts
+│   ├── graphql/
+│   │   └── queries.ts
+│   ├── lib/
+│   │   └── apolloClient.ts
+│   ├── pages/
+│   │   ├── _app.tsx
+│   │   ├── _document.tsx
+│   │   └── index.tsx
+│   └── types/
+│       └── graphql.ts
+├── .eslintc.json
+├── .gitignore
+├── Dockerfile
+├── next.config.js
+├── next-env.d.ts
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
+
+Archivos compartidos fuera de los directorios de backend y frontend
+├── .env
+└── docker-compose.yml
+```
+
