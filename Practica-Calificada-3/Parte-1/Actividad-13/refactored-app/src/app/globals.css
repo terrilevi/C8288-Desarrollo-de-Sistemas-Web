@@ -1,0 +1,11 @@
+/* Puedes agregar estilos globales aquí */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
