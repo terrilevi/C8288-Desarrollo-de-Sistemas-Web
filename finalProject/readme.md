@@ -97,7 +97,7 @@ En la era digital actual, las plataformas sociales se han convertido en pilares 
 
 #### **5. Documentación básica**
 
-- **Guía de instalación:** Instrucciones para configurar el entorno de desarrollo.
+- **Guía de instalación:** Instrucciones para configurar el entorno de desarrollo. Si puedes usa Swagger
   
 - **Manual de uso:** Descripción de las funcionalidades implementadas.
 
