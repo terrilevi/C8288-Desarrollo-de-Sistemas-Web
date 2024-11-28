@@ -1,4 +1,4 @@
-# Proyecto de Red Social - README Principal
+# Aplicación web de red social - FakeSocialMedia
 
 Este proyecto es una aplicación web de red social que permite a los usuarios registrarse, iniciar sesión, crear publicaciones, enviar solicitudes de amistad, aceptar o rechazar solicitudes, y actualizar su perfil. La aplicación está dividida en dos partes principales: el cliente (frontend) construido con React y Redux, y el servidor (backend) construido con Node.js, Express y MongoDB.
 
