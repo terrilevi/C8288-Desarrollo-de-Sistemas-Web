@@ -3,6 +3,13 @@
 Este proyecto es una aplicación web de red social que permite a los usuarios registrarse, iniciar sesión, crear publicaciones, enviar solicitudes de amistad, aceptar o rechazar solicitudes, y actualizar su perfil. La aplicación está dividida en dos partes principales: el cliente (frontend) construido con React y Redux, y el servidor (backend) construido con Node.js, Express y MongoDB.
 
 ---
+## Imágenes 
+![alt text](imagenesApoyo/imagen1.png)
+![alt text](imagenesApoyo/imagen2.png)
+![alt text](imagenesApoyo/imagen3.png)
+![alt text](imagenesApoyo/imagen4.png)
+
+---
 
 ## Tabla de Contenidos
 
