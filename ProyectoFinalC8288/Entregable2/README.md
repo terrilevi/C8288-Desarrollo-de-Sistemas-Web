@@ -71,7 +71,7 @@ docker-compose down
 
 ---
 
-#### Implementación completa del desarrollo:
+# Implementación completa del desarrollo:
 Me gustaria continuar explicando las nuevas fucnionalidades de mi proyecto,
 antes que nada me gustaria hacer un refresh sobre como funcionaba mi aplicativo de forma general.
 
