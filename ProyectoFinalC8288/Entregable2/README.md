@@ -207,8 +207,6 @@ Las salas son útiles en aplicaciones como:
 
 Pero veamos nuestro caso, nosotros tenemos 3 implementaciones que utilizan Socket.IO en nuestra aplicación de red social: friend requests en tiempo real, actualización de likes en tiempo real, y creación de posts en tiempo real. Analicemos primero el flujo completo de friend requests:
 
-Continuaré tu explicación, analizando en detalle cómo se implementa la funcionalidad de solicitudes de amistad en tiempo real en tu aplicación:
-
 Pero veamos nuestro caso, nosotros tenemos 3 implementaciones que utilizan Socket.IO para características en tiempo real, y analizaremos la primera que es el sistema de solicitudes de amistad:
 
 1. Configuración del Servidor Socket.IO:
