@@ -16,7 +16,7 @@ cd social-media-functional-first-part/server
 
 2. Instala las dependencias:
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 3. Crea un archivo `.env` en el directorio `server` con las siguientes variables:
