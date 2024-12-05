@@ -69,9 +69,6 @@ Esta acción hace una llamada a nuestra API que está definida en api/index.js:
 ```javascript
 export const sendFriendRequest = (userId) => API.post(`/user/friend-request/${userId}`);
 ```
-Esta es una solicitud HTTP POST, en el cual requiere el ID del usuario a quien se envía la solicitud, en palabras técnicas sería, el cliente desea interactuar con el recurso amigo, y lo que desea hacer es enviarle una solicitud... (MEJORARLO CON CLAUDE TECNICAMENTE) 
-
-
 
 Esta petición POST se enviará a nuestro servidor con el ID del usuario al que queremos enviar la solicitud. El token JWT que guardamos previamente en localStorage será incluido automáticamente en la petición gracias al interceptor de axios que configuramos.
 
