@@ -3,7 +3,75 @@
 ![alt text](imagenesApoyo/imagenbonita1.png)
 ![alt text](imagenesApoyo/imagenbonita2.png)
 
-#### Iniciando explicación:
+# Setup del entorno para poder correr la aplicación con docker
+
+### Requisitos Previos
+
+- **Docker** y **Docker Compose** instalados en su sistema.
+- **Node.js** y **npm** si desea ejecutar la aplicación sin Docker.
+
+### Clonar el Repositorio
+
+```bash
+git clone https://github.com/terrilevi/C8288-Desarrollo-de-Sistemas-Web/tree/main/finalProject.git
+```
+
+### Configuración de Variables de Entorno
+
+Crear un archivo `.env` en el directorio `server/` con el siguiente contenido:
+
+```env
+PORT=5000
+MONGODB_URI=tu_uri_de_mongodb
+JWT_SECRET=tu_secreto_jwt
+```
+
+**Nota**: Reemplaza `tu_uri_de_mongodb` y `tu_secreto_jwt` con tus credenciales reales.
+
+---
+
+## Uso de Docker
+
+La aplicación está preparada para ser ejecutada en contenedores Docker utilizando Docker Compose.
+
+### Requisitos Previos
+
+- **Docker** instalado en tu sistema.
+- **Docker Compose** instalado (viene incluido con Docker en muchas instalaciones).
+
+### Construcción de la Imagen Docker
+
+Desde el directorio raíz del proyecto, ejecuta:
+
+```bash
+docker-compose build
+```
+
+Este comando construirá las imágenes Docker para el cliente y el servidor.
+
+Nota: Yo tuve que usar sudo en linux.
+
+### Ejecución de los Contenedores
+
+Para iniciar los contenedores, ejecuta:
+
+```bash
+docker-compose up
+```
+
+Esto iniciará los servicios definidos en `docker-compose.yml`. La aplicación estará disponible en `http://localhost:3000`.
+
+### Detener los Contenedores
+
+Para detener los contenedores, presiona `Ctrl+C` en la terminal donde se está ejecutando `docker-compose up`, o ejecuta:
+
+```bash
+docker-compose down
+```
+
+---
+
+#### Implementación completa del desarrollo:
 Me gustaria continuar explicando las nuevas fucnionalidades de mi proyecto,
 antes que nada me gustaria hacer un refresh sobre como funcionaba mi aplicativo de forma general.
 
