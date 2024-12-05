@@ -1,6 +1,3 @@
-Te ayudaré a crear un README detallado para el servidor, siguiendo una estructura similar pero adaptada al backend:
-
-
 # README del Servidor (Server-Side)
 
 Este README proporciona información detallada sobre el lado del servidor del proyecto, incluyendo la estructura de archivos, configuración necesaria, descripción general del funcionamiento del servidor y las instrucciones para ejecutarlo usando npm. Si prefieres ejecutar la aplicación utilizando Docker, por favor dirígete al directorio principal del proyecto donde encontrarás otro `README.md` con instrucciones sobre cómo configurar Docker.
