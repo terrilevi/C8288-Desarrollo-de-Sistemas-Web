@@ -1,5 +1,9 @@
 # Implementación detallada del Entregable 2:
+#### Fotitos:
+![alt text](imagenesApoyo/imagenbonita1.png)
+![alt text](imagenesApoyo/imagenbonita2.png)
 
+#### Iniciando explicación:
 Me gustaria continuar explicando las nuevas fucnionalidades de mi proyecto,
 antes que nada me gustaria hacer un refresh sobre como funcionaba mi aplicativo de forma general.
 
