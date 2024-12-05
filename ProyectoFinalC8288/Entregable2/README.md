@@ -1,4 +1,4 @@
-# Implementación detallada del Entregable 2:
+# Entregable 2 - añádiendo socket.io y comentarios:
 #### Fotitos:
 ![alt text](imagenesApoyo/imagenbonita1.png)
 ![alt text](imagenesApoyo/imagenbonita2.png)
